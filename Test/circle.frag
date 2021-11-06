@@ -10,7 +10,8 @@ uniform vec2 u_resolution;
 //step(a, x) :  if x<a return 0;else return 1;
 //length(vec2):向量长度
 float circle_shape(vec2 position,float radius){
-    return step(radius,length(position-vec2(0.5)));
+    position = position*2.0-1.0;
+    return step(radius,length(position));
 }
 
 void main(){
