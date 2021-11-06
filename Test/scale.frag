@@ -11,11 +11,17 @@ float circle_shape(vec2 position,float radius){
     return step(radius,length(position));
 }
 
+mat2 scale(vec2 scale){
+    return mat2(scale.x,0.0,0.0,scale.y);
+}
+
 void main(){
     vec2 coord=gl_FragCoord.xy/u_resolution;
-    vec2 translate= vec2(sin(u_time),cos(u_time)); 
-    coord+=translate*0.5;
-    float circle = circle_shape(coord,0.2);
+    coord-=vec2(0.5);
+    coord=scale(vec2(sin(u_time)+2.0))*coord;
+    coord+=vec2(0.5);
+    
+    float circle = circle_shape(coord,0.5);
     vec3 color=vec3(circle);
     gl_FragColor=vec4(color,1.0);
 }
