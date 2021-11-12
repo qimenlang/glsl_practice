@@ -3,6 +3,7 @@ precision mediump float;
 #endif
 
 uniform vec2 u_resolution;
+uniform float u_time;
 
 //u_resolution 屏幕尺寸
 //u_time 绘制时间
